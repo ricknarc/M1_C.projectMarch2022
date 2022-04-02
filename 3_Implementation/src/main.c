@@ -5,8 +5,8 @@
 
 typedef struct NODE
 {
-	int reg_no;
-	int age;
+	int registno;
+	int userage;
 	char name[20];
 	struct NODE *next;
 } node;
@@ -22,25 +22,25 @@ void display();
 node *start;
 node *front;
 node *rear;
-int count=0;
-int num=0;
+int flag=0;
+int number=0;
 
 int create( )
 {
 	node *new;
 	new=(node *)malloc(sizeof(node));
-	new->reg_no=1;
+	new->registno=1;
 	printf("Name: ");
 	scanf("%s", new->name);
 	printf("Age : ");
-	scanf("%d", &new->age);
-    if(new->age>=90 || new->age<=10) {
+	scanf("%d", &new->userage);
+    if(new->userage>=90 || new->userage<=10) {
         free(new);
         return -1;
     }
 	start=new;
 	new->next=NULL;
-	num++;
+	number++;
     return 1;
 	
 }
@@ -68,15 +68,15 @@ int reserve(node *start)
 	printf("Name: ");
 	scanf("%s", new_node->name);
 	printf("Age : ");
-	scanf("%d", &new_node->age);
-    if(new_node->age >=90 || new_node->age<=10) {
+	scanf("%d", &new_node->userage);
+    if(new_node->userage >=90 || new_node->userage<=10) {
         return -1;
     }
 	new_node->next=NULL;
-	if(num<=size)
+	if(number<=size)
 	{
-		num++;
-		new_node->reg_no=num;
+		number++;
+		new_node->registno=number;
 		temp->next=new_node;
 		
 		return 1;
@@ -97,22 +97,22 @@ int cancel(int reg)
 	preptr=NULL;
 	if(start==NULL)
 	return -1;
-	if(ptr->next==NULL && ptr->reg_no==reg)
+	if(ptr->next==NULL && ptr->registno==reg)
 		{
 		start=NULL;
-		num--;
+		number--;
 		free(ptr);
 		return 1;
 		
 		}
 		
 	else{	
-	while(ptr->reg_no!=reg && ptr->next!=NULL)
+	while(ptr->registno!=reg && ptr->next!=NULL)
 		{
 			preptr=ptr;
 			ptr=ptr->next;
 		}
-		if(ptr==NULL && ptr->reg_no!=reg)
+		if(ptr==NULL && ptr->registno!=reg)
 			return -1;
 		else
 			preptr->next=ptr->next;
@@ -121,7 +121,7 @@ int cancel(int reg)
 		while(preptr->next!=NULL)
 			preptr=preptr->next;
 		preptr->next=new;
-		num--;
+		number--;
 		return 1;
 	
 	}
@@ -143,7 +143,7 @@ void enq(node *new_node)
 		temp->next=NULL;
 		rear=temp;
 	}
-	count++;
+	flag++;
 }
 
 node* deq()
@@ -154,7 +154,7 @@ node* deq()
 		return NULL;
 	else
 	{
-	    count-- ;
+	    flag-- ;
 		if(front->next!=NULL)
 		{
 			front=front->next;
@@ -171,6 +171,7 @@ node* deq()
 	}	
 }
 
+// user name and Resistration function
 
 void display()
 {
@@ -178,13 +179,14 @@ void display()
 	temp=start;
 	while(temp!=NULL)
 	{
-		printf("\nRegistration Number: %d\n", temp->reg_no);
+		printf("\nRegistration Number: %d\n", temp->registno);
 		printf("Name : %s\n\n", temp->name);
 		temp=temp->next;
     }
     
 }
 
+//Main function
 int main()
 {
 	int choice, status=0,canc=0, reg=0;
@@ -201,18 +203,18 @@ int main()
 	{	
 		case 1 :  status=reserve(start);
 	              if(status==0)
-	                printf("\nBooking Full!! \nYou are added to waiting list. Waiting list number %d", count);
+	                printf("\nBooking Full!! \nYou are added to waiting list. Waiting list number %d", flag);
 	              else if(status == -1) {
-                      printf("\n age not eligible");
+                      printf("\n userage not eligible");
                   }
                   else
-	                printf(" \nBooking Successful!!! Enjoy your journey! Your Reg No is %d\n\n", num);
+	                printf(" \nBooking Successful!!! Enjoy your journey! Your Reg No is %d\n\n", number);
 	                
 	              break;
 	        
 	    case 2:   printf(" \n Give the Registration number to be cancelled\n");
 	              scanf(" %d", &reg);
-	              if(reg>num)
+	              if(reg>number)
 	              printf("Invalid!!");
 	              else
 	              {
