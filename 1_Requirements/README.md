@@ -1,4 +1,15 @@
-# Railway Reservation MiniProject Requirements
+# Railway Reservation MiniProject Requirements and Introduction
+
+# Introduction
+* This project is basically concerned with the railways reservation of the tickets for the passengers.
+
+* In this project implementation is done by the problem statement, that how the reservation is done with the feature of cancelling a ticket and waiting list.
+
+* In the project, implementation of this parameters have been done
+* Reservation
+* Cancellation
+* Display reserved and waiting list passengers.
+
 
 # W4
 
