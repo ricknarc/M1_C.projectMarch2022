@@ -34,4 +34,4 @@
 
 
 # Threats:
-* it has become ore common in digital life so it is causing to more difficulties
+* being on initial stage some vulnerabilities can give access to unwanted users.
