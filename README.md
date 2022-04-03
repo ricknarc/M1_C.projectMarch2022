@@ -1,5 +1,5 @@
 # Railway Reservaton System
- Railway reservation system project mainly focus on customer details, and take same as input and sorts all the information using data structures and finaly arrange them in an organized manner. This code is basically written as a solution to the drawbacks of manual ticket booking in the railway stations. This application can be used as a real world application and by any organization. In the project entities like Reservation, Cancellation and Display of reserved and waiting list passengers is shown.
+ Railway reservation system project mainly focus on customer details, and take same as input and sorts all the information using data structures and finaly arrange them in an organized manner. This code is basically written as a solution to the drawbacks of manual ticket booking in the railway stations. This application can be used as a real world application and by any organization. In the project entities like Reservation, Cancellation, Display of reserved seats and waiting list passengers is shown.
 
 # badges
 * cadacy - code analysis
